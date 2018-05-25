@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html ng-app="demoApp">
+<head>
+    <meta charset="utf-8" />
+    <title>Contact Management</title>
+    <!--Include CSS Files-->
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/ngDialog.min.css">
+    <link rel="stylesheet" href="CSS/ngDialog-theme-default.min.css">
+
+    <!--Include Angular Files-->
+    <script src="Scripts/angular.js" type="text/javascript"></script>
+    <script src="Scripts/angular-ui-router-min.js" type="text/javascript"></script>
+    <script src="Scripts/ngDialog.min.js" type="text/javascript"></script>
+
+    <!-- Custom JS -->
+    <script src="app.js" type="text/javascript"></script>
+    <script src="Service/contact-service.js" type="text/javascript"></script>
+    <script src="Filter/filter.contact-list.js"></script>
+    <script src="Controller/contact-list-controller.js" type="text/javascript"></script>
+    <script src="Controller/contact-add-update-controller.js" type="text/javascript"></script>
+</head>
+<body ng-controller="mainController">
+    <div ui-view></div>
+</body>
+</html>

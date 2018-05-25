@@ -1,0 +1,68 @@
+﻿
+<h1 class="data-align-center">{{labels.pageHeading}}</h1>
+<div class="container-fluid">
+    <div class="row" ng-init="pageSize=5;pageIndex=1;">
+        <section class="col-md-12">
+            <table class="table table-bordered contact-common-bg">
+                <thead>
+                    <tr class="alert alert-info">
+                        <th colspan="7" class="data-align-center">
+                            <button type="button" class="btn btn-primary btn-md btn-pull-right-corner" ng-click="addContactFlow()"><i class="fa fa-plus"></i> <strong>{{labels.buttonLabels.addContactBtn}}</strong></button>
+                        </th>
+                    </tr>
+                    <tr class="alert alert-info">
+                        <th>{{labels.contactId}}</th>
+                        <th>{{labels.firstName}}</th>
+                        <th>{{labels.lastName}}</th>
+                        <th>{{labels.emailAddress}}</th>
+                        <th>{{labels.contactNum}}</th>
+                        <th>{{labels.status}}</th>
+                        <th colspan="2" class="data-align-center">{{labels.action}}</th>
+                    </tr>
+
+                    <tr>
+                        <th></th>
+                        <th><input class="input-sm" ng-model="contactFilter.firstName" /></th>
+                        <th><input class="input-sm" ng-model="contactFilter.lastName" /></th>
+                        <th><input class="input-sm" ng-model="contactFilter.emailAddr" /></th>
+                        <th><input class="input-sm" ng-model="contactFilter.telephone" /></th>
+                        <th></th>
+                        <th colspan="2"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="contact in contactList | contactListFilter : contactFilter : pageSize : pageIndex">
+                        <td>
+                            <span ng-bind="contact.id"></span>
+                        </td>
+                        <td>
+                            <span ng-bind="contact.firstName"></span>
+                        </td>
+                        <td><span ng-bind="contact.lastName"></span></td>
+                        <td><span ng-bind="contact.emailAddr"></span></td>
+                        <td><span ng-bind="contact.telephone"></span></td>
+                        <td><span ng-bind="contact.isActive ? '{{labels.activeStatus}}': '{{labels.inActiveStatus}}'"></span></td>
+                        <td nowrap class="data-align-center">
+                            <button type="button" class="btn btn-danger btn-sm btn-grouping-space" ng-click="deleteContact(contact.id)"><i class="fa fa-trash-o"></i></button>
+                            <a class="btn btn-warning btn-sm btn-grouping-space" ui-sref="contact-add-update({contact:contact})"><i class="fa fa-edit"></i></a>
+                            <button type="button" class="btn {{contact.isActive ? 'btn-default' : 'btn-success'}} btn-sm" title="{{contact.isActive ? 'Inactive': 'Active'}}" ng-click="contact.isActive ? contact.isActive = false: contact.isActive = true"><i class="fa {{contact.isActive ? 'fa-times-circle' : 'fa-check-circle'}}"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="alert alert-info">
+                        <th colspan="6">
+                            <span ng-repeat="num in contactList | calculatePageIndex : pageSize">
+                                <button type="button" class="btn btn-info btn-xs" ng-click="setPageIndex($index+1)"> {{num}} </button> &nbsp;
+                            </span>
+                        </th>
+                        <th class="data-align-center">
+                            <select class="input-sm pull-right" ng-model="pageSize" ng-options="num as num for num in [5,10,15,20]"></select>
+                        </th>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+    </div>
+
+</div>

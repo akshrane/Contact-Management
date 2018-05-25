@@ -1,0 +1,48 @@
+body {
+    background-color:darkgrey;
+}
+.container-fluid {
+    padding-right: 130px !important;
+    padding-left: 130px !important;
+}
+
+.c-form{
+    border:1px solid black;
+    border-radius:20px;
+    padding:3%;
+}
+
+.f-bt{
+    width:100%;
+}
+.c-form-sect {
+    margin-top:4%;
+}
+.row-parent-head {
+    background-color: lightgrey;
+    width: 97%;
+}
+.btn-pull-right-corner {
+    float : right;
+}
+.col-add-extra-margin{
+    margin-top: 1%;
+}
+.data-align-center {
+    text-align: center;
+}
+.btn-grouping-space {
+    margin-right: 10px;
+}
+.error-message {
+    color: #a94442 !important;
+    background-color: none !important;
+    border-color: none !important;
+    margin-top: 10px !important;
+}
+.contact-common-bg{
+    background-color : white;
+}
+.c-form-sect .container-fluid h3 {
+    margin-top: -10px !important;
+}

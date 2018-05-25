@@ -1,0 +1,54 @@
+﻿<section class="c-form-sect">
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 col-xs-12 col-sm-12 col-lg-4 c-form col-lg-offset-4 col-md-offset-4 contact-form contact-common-bg">
+                    <h3 class="data-align-center">{{isUpdate ? labels.updatePageHeading : labels.addPageHeading}}</h3>
+                <hr />
+                <form name="contactInfoForm" ng-submit="isUpdate ? updateContact(contactInfoForm.$valid) : addContact(contactInfoForm.$valid)" novalidate>
+                    <feildset>
+                        <div class="form-group">
+                            <label for="firstName">{{labels.firstName}}</label>
+                            <input type="text" placeholder={{labels.placeHolders.firstNamePlaceHolder}} class="form-control" id="firstName" name="firstName" ng-model="contact.firstName" required>
+                            <p ng-show="contactInfoForm.firstName.$error.required && contactInfoForm.firstName.$invalid && contactInfoForm.firstName.$touched" class="error-message">{{labels.errorMsgs.firstNameErrMsg}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">{{labels.lastName}}</label>
+                            <input type="text" placeholder="{{labels.placeHolders.lastNamePlaceHolder}}" class="form-control" id="lastName" name="lastName" ng-model="contact.lastName" required>
+                            <p ng-show="contactInfoForm.lastName.$error.required && contactInfoForm.lastName.$invalid && contactInfoForm.lastName.$touched" class="error-message">{{labels.errorMsgs.lastNameErrMsg}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">{{labels.emailAddress}}</label>
+                            <input type="email" placeholder="{{labels.placeHolders.emailPlaceHolder}}" class="form-control" id="email" name="email" ng-model="contact.emailAddr" required>
+                            <p ng-show="contactInfoForm.email.$error.required && contactInfoForm.email.$touched && !contactInfoForm.email.$dirty" class="error-message">{{labels.errorMsgs.emailErrMsg}}</p>
+                            <p ng-show="contactInfoForm.email.$invalid && !contactInfoForm.email.$pristine" class="error-message">{{labels.errorMsgs.emailInvalidErrMsg}}</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactNumber">{{labels.contactNum}}</label>
+                            <input type="number" placeholder="{{labels.placeHolders.contactNumberPlaceHolder}}" class="form-control" id="contactNumber" name="contactNumber" maxlength="10" minlength="10" ng-maxlength="10" ng-model="contact.telephone" required ng-minlength="10"/>
+                            <p ng-show="contactInfoForm.contactNumber.$error.required && contactInfoForm.contactNumber.$touched && !contactInfoForm.contactNumber.$dirty" class="error-message">{{labels.errorMsgs.contactNumberErrMsg}}</p>
+                            <p ng-show="contactInfoForm.contactNumber.$error.number" class="error-message">{{labels.errorMsgs.contactNumberLengthMinErrMsg}}</p>
+                            <p ng-show="contactInfoForm.contactNumber.$error.minlength" class="error-message">{{labels.errorMsgs.contactNumberLengthMinErrMsg}}</p>
+                            <p ng-show="contactInfoForm.contactNumber.$error.maxlength" class="error-message">{{labels.errorMsgs.contactNumberLengthMaxErrMsg}}</p>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" ng-true-value="true" ng-model="contact.isActive"> {{labels.statusType}}
+                        </div>
+                        <footer>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <button type="submit" class="btn btn-success btn-md pull-right f-bt">{{isUpdate ? (labels.buttonLabels.updateBtn) : (labels.buttonLabels.submitBtn)}}</button>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    <a class="btn btn-default btn-md pull-right f-bt" ui-sref="contactList">{{labels.buttonLabels.cancelBtn}}</a>
+                                </div>
+                            </div>
+
+
+                        </footer>
+                    </feildset>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
